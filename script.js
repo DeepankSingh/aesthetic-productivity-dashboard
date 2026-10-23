@@ -279,6 +279,16 @@ class StickyNotesApp {
         document.addEventListener('mousedown', (e) => this.onMouseDown(e));
         document.addEventListener('mousemove', (e) => this.onMouseMove(e));
         document.addEventListener('mouseup',   (e) => this.onMouseUp(e));
+
+        document.addEventListener('mousedown', (e) => {
+            if (e.target.closest('.note-resize-handle')) {
+                this.onResizeStart(e);
+            }
+        });
+
+        document.addEventListener('mousemove', (e) => this.onResizeMove(e));
+        document.addEventListener('mouseup', () => this.onResizeEnd());
+
     }
 
     // ══════════════════════════════════════════
@@ -286,6 +296,10 @@ class StickyNotesApp {
     // ══════════════════════════════════════════
     onMouseDown(e) {
         const note = e.target.closest('.sticky-note');
+        if (e.target.closest('.note-resize-handle')) {
+            this.onResizeStart(e);
+            return;
+        }
         if (!note) return;
         if (e.target.closest('textarea,input,button,.todo-text,.todo-checkbox,.todo-delete-btn,.todo-add-btn')) return;
         if (e.button !== 0) return;
@@ -326,6 +340,64 @@ class StickyNotesApp {
         }
         this._drag = null;
     }
+
+    
+    // RESIZE: Start
+    onResizeStart(e) {
+        if (e.button !== 0) return;
+
+        const handle = e.target.closest('.note-resize-handle');
+        if (!handle) return;
+
+        const noteEl = handle.closest('.sticky-note');
+        if (!noteEl) return;
+
+        const noteId = noteEl.dataset.noteId;
+        const note = this.notes.find(n => n.id === noteId);
+        if (!note) return;
+
+        this._resize = {
+            noteId,
+            el: noteEl,
+            startX: e.clientX,
+            startY: e.clientY,
+            startWidth: noteEl.offsetWidth,
+            startHeight: noteEl.offsetHeight
+        };
+
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    // RESIZE: Move
+    onResizeMove(e) {
+        if (!this._resize) return;
+
+        const { el, startX, startY, startWidth, startHeight } = this._resize;
+
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+
+        el.style.width = Math.max(180, startWidth + dx) + 'px';
+        el.style.height = Math.max(120, startHeight + dy) + 'px';
+    }
+
+    // RESIZE: End
+    onResizeEnd() {
+        if (!this._resize) return;
+
+        const { noteId, el } = this._resize;
+        const note = this.notes.find(n => n.id === noteId);
+
+        if (note) {
+            note.width = el.offsetWidth;
+            note.height = el.offsetHeight;
+            this.debounceSave();
+        }
+
+        this._resize = null;
+    }
+
 
     // ══════════════════════════════════════════
     //  SETTINGS / BACKGROUND
@@ -620,6 +692,17 @@ class StickyNotesApp {
                 el.style.top  = (note.posY || 10) + 'px';
             }
 
+            if (note) {
+                if (note.width) {
+                    el.style.width = note.width + 'px';
+                }
+
+                if (note.height) {
+                    el.style.height = note.height + 'px';
+                }
+            }
+
+
             if (note && note.fontColor && note.fontColor !== DEFAULT_FONT_COLOR) {
                 this.applyFontColor(el, note.fontColor);
             }
@@ -675,6 +758,7 @@ class StickyNotesApp {
                 <div class="note-footer">
                     <span class="note-timestamp">${this.formatDate(note.createdAt)}</span>
                 </div>
+                <div class="note-resize-handle" aria-label="Resize note" title="Drag to resize"></div>
             </div>`;
     }
 

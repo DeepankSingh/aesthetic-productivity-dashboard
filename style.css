@@ -810,3 +810,38 @@ mark.search-match {
     .tut-pos-right { left:10px; top:84px; }
     .fab-menu { min-width:196px; }
 }
+
+
+
+/* Sticky note resize handle */
+.sticky-note {
+    position: absolute;
+}
+
+.note-resize-handle {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 18px;
+    height: 18px;
+    cursor: nwse-resize;
+    z-index: 10;
+    touch-action: none;
+}
+
+.note-resize-handle::after {
+    content: '';
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    opacity: 0.55;
+    transition: opacity 0.2s ease;
+}
+
+.note-resize-handle:hover::after {
+    opacity: 1;
+}
