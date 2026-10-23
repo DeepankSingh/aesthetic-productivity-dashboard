@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ── Floating Action Button cluster ── -->
+    <div class="fab-wrapper" id="fabWrapper">
+        <button id="burgerBtn" class="burger-btn" title="Menu" aria-label="Open menu">
+            <div class="burger-lines">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="burger-glow"></div>
+        </button>
+
+        <div id="fabMenu" class="fab-menu hidden">
+            <!-- Add Note -->
+            <button id="addNoteBtn" class="fab-action fab-add" title="Add Note">
+                <span class="fa-ico">＋</span>
+                <span class="fa-lbl">New Note</span>
+                <div class="fab-shine"></div>
+            </button>
+
+            <!-- Background -->
+            <button id="backgroundBtn" class="fab-action fab-bg" title="Background">
+                <span class="fa-ico">✦</span>
+                <span class="fa-lbl">Wallpaper</span>
+                <div class="fab-shine"></div>
+            </button>
+
+            <!-- Search -->
+            <div class="fab-action fab-search-row">
+                <span class="fa-ico">◎</span>
+                <input type="text" id="searchInput" class="fab-search-input" placeholder="Search notes…" autocomplete="off">
+                <button id="clearSearch" class="clear-search" title="Clear">✕</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Notes Canvas ── -->
+    <div id="notesContainer" class="notes-container"></div>
+
+    <!-- ── Background Modal ── -->
+    <div id="backgroundModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Choose Wallpaper</h3>
+                <button id="closeModal" class="close-btn">✕</button>
+            </div>
+            <div class="modal-body">
+                <!-- Loading state -->
+                <div id="wallpaperLoader" class="wallpaper-loader">
+                    <div class="loader-spinner"></div>
+                    <span>Loading wallpapers…</span>
+                </div>
+
+                <!-- Populated by JS from wallpapers.json -->
+                <div id="wallpaperContent" class="hidden">
+                    <div class="bg-section">
+                        <p class="bg-label">Gradients</p>
+                        <!-- Gradient options injected here -->
+                        <div class="color-grid" id="gradientGrid"></div>
+                    </div>
+                    <div class="bg-section">
+                        <p class="bg-label">Wallpapers</p>
+                        <!-- Wallpaper options injected here -->
+                        <div class="wallpaper-grid" id="wallpaperGrid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Context Menu ── -->
+    <div id="contextMenu" class="context-menu">
+        <div class="ctx-item" id="pinNote">
+            <span class="ctx-ico pin-ico">📌</span>
+            <span id="pinText">Pin Note</span>
+        </div>
+        <div class="ctx-item" id="toggleTodo">
+            <span class="ctx-ico">☑️</span>
+            <span id="todoText">Switch to Todo</span>
+        </div>
+        <div class="ctx-sep"></div>
+        <!-- Note background colour swatches -->
+        <div class="ctx-row-label">Note colour</div>
+        <div class="ctx-colors" id="contextColors">
+            <span class="n-swatch" data-color="color-lemon"   title="Lemon"></span>
+            <span class="n-swatch" data-color="color-rose"    title="Rose"></span>
+            <span class="n-swatch" data-color="color-mint"    title="Mint"></span>
+            <span class="n-swatch" data-color="color-sky"     title="Sky"></span>
+            <span class="n-swatch" data-color="color-peach"   title="Peach"></span>
+            <span class="n-swatch" data-color="color-lavender"title="Lavender"></span>
+        </div>
+        <!-- Font colour swatches -->
+        <div class="ctx-row-label">Font colour</div>
+        <div class="ctx-font-colors" id="contextFontColors">
+            <span class="f-swatch" data-fcolor="#1a1a2e"  title="Ink"      style="background:#1a1a2e;"></span>
+            <span class="f-swatch" data-fcolor="#7c5cfc"  title="Violet"   style="background:#7c5cfc;"></span>
+            <span class="f-swatch" data-fcolor="#e91e63"  title="Crimson"  style="background:#e91e63;"></span>
+            <span class="f-swatch" data-fcolor="#1565c0"  title="Navy"     style="background:#1565c0;"></span>
+            <span class="f-swatch" data-fcolor="#2e7d32"  title="Forest"   style="background:#2e7d32;"></span>
+            <span class="f-swatch" data-fcolor="#e65100"  title="Ember"    style="background:#e65100;"></span>
+            <span class="f-swatch" data-fcolor="#6d4c41"  title="Mocha"    style="background:#6d4c41;"></span>
+            <span class="f-swatch" data-fcolor="#424242"  title="Slate"    style="background:#424242;"></span>
+        </div>
+        <div class="ctx-sep"></div>
+        <div class="ctx-item ctx-delete" id="deleteNote">
+            <span class="ctx-ico">🗑️</span>
+            Delete Note
+        </div>
+    </div>
+
+    <!-- ── Autosave Toast ── -->
+    <div id="autosaveIndicator" class="autosave-toast">
+        <span class="toast-dot"></span> Saved
+    </div>
+
+    <!-- ══════════════════════════════════════
+         FIRST-TIME TUTORIAL
+    ══════════════════════════════════════ -->
+    <div id="tutorialOverlay" class="tut-overlay hidden">
+
+        <div class="tutorial-step" id="tStep1">
+            <div class="tut-card tut-center">
+                <div class="tut-badge">✦</div>
+                <h2>Welcome to Notes</h2>
+                <p>A quick tour to get you started. You'll be a pro in under a minute!</p>
+                <div class="tut-actions">
+                    <button class="tut-skip" id="tutSkip1">Skip</button>
+                    <button class="tut-next" id="tNext1">Next <span>→</span></button>
+                </div>
+                <div class="tut-progress"><span class="tp active"></span><span class="tp"></span><span class="tp"></span><span class="tp"></span><span class="tp"></span></div>
+            </div>
+        </div>
+
+        <div class="tutorial-step hidden" id="tStep2">
+            <div class="tut-spotlight" style="top:8px;left:8px;width:54px;height:54px;border-radius:18px;"></div>
+            <div class="tut-card tut-pos-right">
+                <div class="tut-badge">☰</div>
+                <h2>Your Control Center</h2>
+                <p>The <strong>menu button</strong> (top-left) opens your toolkit — Add notes, change the wallpaper, or search.</p>
+                <p style="margin-top:6px">Tip: <kbd>Ctrl+N</kbd> adds a note instantly.</p>
+                <div class="tut-actions">
+                    <button class="tut-skip" id="tutSkip2">Skip</button>
+                    <button class="tut-next" id="tNext2">Next <span>→</span></button>
+                </div>
+                <div class="tut-progress"><span class="tp"></span><span class="tp active"></span><span class="tp"></span><span class="tp"></span><span class="tp"></span></div>
+            </div>
+        </div>
+
+        <div class="tutorial-step hidden" id="tStep3">
+            <div class="tut-card tut-center">
+                <div class="tut-badge">✋</div>
+                <h2>Drag Anywhere</h2>
+                <p>Grab any note by its body and <strong>drag it</strong> anywhere on the canvas. Position is saved automatically.</p>
+                <div class="tut-actions">
+                    <button class="tut-skip" id="tutSkip3">Skip</button>
+                    <button class="tut-next" id="tNext3">Next <span>→</span></button>
+                </div>
+                <div class="tut-progress"><span class="tp"></span><span class="tp"></span><span class="tp active"></span><span class="tp"></span><span class="tp"></span></div>
+            </div>
+        </div>
+
+        <div class="tutorial-step hidden" id="tStep4">
+            <div class="tut-card tut-center">
+                <div class="tut-badge">🖱</div>
+                <h2>Right-Click Magic</h2>
+                <p><strong>Right-click</strong> any note to pin it, switch to a <strong>checklist</strong>, change its colour, or delete it.</p>
+                <div class="tut-actions">
+                    <button class="tut-skip" id="tutSkip4">Skip</button>
+                    <button class="tut-next" id="tNext4">Next <span>→</span></button>
+                </div>
+                <div class="tut-progress"><span class="tp"></span><span class="tp"></span><span class="tp"></span><span class="tp active"></span><span class="tp"></span></div>
+            </div>
+        </div>
+
+        <div class="tutorial-step hidden" id="tStep5">
+            <div class="tut-card tut-center">
+                <div class="tut-badge">🚀</div>
+                <h2>You're All Set!</h2>
+                <p>Everything <strong>auto-saves</strong> as you type. Use <kbd>Ctrl+F</kbd> to search any time.</p>
+                <p style="margin-top:8px">Now go capture those ideas! ✨</p>
+                <div class="tut-actions">
+                    <button class="tut-next tut-done" id="tDone">Let's go!</button>
+                </div>
+                <div class="tut-progress"><span class="tp"></span><span class="tp"></span><span class="tp"></span><span class="tp"></span><span class="tp active"></span></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

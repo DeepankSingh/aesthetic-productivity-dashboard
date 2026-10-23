@@ -1,0 +1,161 @@
+{
+  "gradients": [
+    { "label": "Deep Space",    "value": "linear-gradient(135deg,#0f0c29,#302b63,#24243e)" },
+    { "label": "Midnight Blue", "value": "linear-gradient(135deg,#1a1a2e,#16213e,#0f3460)" },
+    { "label": "Purple Dream",  "value": "linear-gradient(135deg,#667eea,#764ba2)" },
+    { "label": "Pink Sunset",   "value": "linear-gradient(135deg,#f093fb,#f5576c)" },
+    { "label": "Ocean Breeze",  "value": "linear-gradient(135deg,#4facfe,#00f2fe)" },
+    { "label": "Emerald",       "value": "linear-gradient(135deg,#43e97b,#38f9d7)" },
+    { "label": "Flamingo",      "value": "linear-gradient(135deg,#fa709a,#fee140)" },
+    { "label": "Aurora",        "value": "linear-gradient(135deg,#30cfd0,#91a7ff)" }
+  ],
+  "wallpapers": [
+    {
+      "label": "Starry Mountains",
+      "thumb": "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "full":  "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+    },
+    {
+      "label": "Purple Forest",
+      "thumb": "https://images.pexels.com/photos/1408221/pexels-photo-1408221.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "full":  "https://images.pexels.com/photos/1408221/pexels-photo-1408221.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+    },
+    {
+      "label": "Bokeh Lights",
+      "thumb": "https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "full":  "https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+    },
+    {
+      "label": "Neon City",
+      "thumb": "https://images.pexels.com/photos/1269968/pexels-photo-1269968.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "full":  "https://images.pexels.com/photos/1269968/pexels-photo-1269968.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+    },
+    {
+      "label": "Vintage Watch",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1757602873/cld-sample-5.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1757602873/cld-sample-5.jpg"
+    },
+    {
+      "label": "Anime Scene 1",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371346/uwp4639355_ssgpp5.png",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371346/uwp4639355_ssgpp5.png"
+    },
+    {
+      "label": "Anime Scene 2",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371345/1_heosey.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371345/1_heosey.jpg"
+    },
+    {
+      "label": "Demon Slayer Minimal",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371344/wp5977236-demon-slayer-kimetsu-no-yaiba-minimalist-wallpapers_mlg2fb.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371344/wp5977236-demon-slayer-kimetsu-no-yaiba-minimalist-wallpapers_mlg2fb.jpg"
+    },
+    {
+      "label": "Study Motivation",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371343/wp5173701-study-motivation-wallpapers_yfpfoq.png",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371343/wp5173701-study-motivation-wallpapers_yfpfoq.png"
+    },
+    {
+      "label": "Tanjiro",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371342/wp4771888-tanjiro-wallpapers_aglima.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371342/wp4771888-tanjiro-wallpapers_aglima.jpg"
+    },
+    {
+      "label": "Anime Scene 3",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371342/uwp4857511_zkx3c6.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371342/uwp4857511_zkx3c6.jpg"
+    },
+    {
+      "label": "Anime Scene 4",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371341/uwp4857509_mte9au.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371341/uwp4857509_mte9au.jpg"
+    },
+    {
+      "label": "Anime Scene 5",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371340/uwp4857032_hxyasw.png",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371340/uwp4857032_hxyasw.png"
+    },
+    {
+      "label": "Code Motivation",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371334/wp13396132-code-motivation-wallpapers_fptrew.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371334/wp13396132-code-motivation-wallpapers_fptrew.jpg"
+    },
+    {
+      "label": "Anime Scene 6",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371340/uwp4857272_xdozqq.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371340/uwp4857272_xdozqq.jpg"
+    },
+    {
+      "label": "Anime Scene 7",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371340/uwp4857090_o1g2fg.webp",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371340/uwp4857090_o1g2fg.webp"
+    },
+    {
+      "label": "Anime Scene 8",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371338/uwp4855718_auloy2.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371338/uwp4855718_auloy2.jpg"
+    },
+    {
+      "label": "Anime Scene 9",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371338/uwp4850974_dfqqqo.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371338/uwp4850974_dfqqqo.jpg"
+    },
+    {
+      "label": "Anime Scene 10",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371337/uwp4663384_brdxd3.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371337/uwp4663384_brdxd3.jpg"
+    },
+    {
+      "label": "Anime Scene 11",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371336/4_a3sw72.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371336/4_a3sw72.jpg"
+    },
+    {
+      "label": "Anime Scene 12",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371335/5_mk9c9l.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371335/5_mk9c9l.jpg"
+    },
+    {
+      "label": "Anime Scene 13",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371335/6_hgfsct.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371335/6_hgfsct.jpg"
+    },
+    {
+      "label": "Zoro",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371335/wp12290655-zoro-cool-wallpapers_wituia.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371335/wp12290655-zoro-cool-wallpapers_wituia.jpg"
+    },
+    {
+      "label": "Demon Slayer 4K",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371335/wp15000316-demon-slayer-minimalist-4k-wallpapers_j4ymmk.webp",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371335/wp15000316-demon-slayer-minimalist-4k-wallpapers_j4ymmk.webp"
+    },
+    {
+      "label": "Anime Scene 14",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371335/2_tu8mr6.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371335/2_tu8mr6.jpg"
+    },
+    {
+      "label": "Motivation Line",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371334/wp12169072-motivation-line-wallpapers_1_g1atu5.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371334/wp12169072-motivation-line-wallpapers_1_g1atu5.jpg"
+    },
+    {
+      "label": "Study Desktop",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1758371334/wp8386538-study-desktop-wallpapers_svzx5v.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1758371334/wp8386538-study-desktop-wallpapers_svzx5v.jpg"
+    },
+    {
+      "label": "Analog Classic",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1757602863/samples/ecommerce/analog-classic.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1757602863/samples/ecommerce/analog-classic.jpg"
+    },
+    {
+      "label": "Virat Kohli",
+      "thumb": "https://res.cloudinary.com/div6l4vta/image/upload/w_400/v1779546874/1311181_xmqefe.jpg",
+      "full":  "https://res.cloudinary.com/div6l4vta/image/upload/v1779546874/1311181_xmqefe.jpg"
+    }
+    
+
+  ]
+}
